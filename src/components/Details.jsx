@@ -9,16 +9,16 @@ const Details = () => {
 
   const getSingleProduct = async () => {
     try {
-      const { data } = await axios.get(`/product/${id}`);
+      const { data } = await axios.get(`https://fakestoreapi.com/products/${id}`);
       setProduct(data);
     } catch (error) {
-      console.log(error.message);
+      console.log("Error fetching product:", error.message);
     }
   };
 
   useEffect(() => {
     getSingleProduct();
-  }, []);
+  }, [id]);
 
   const navigate = useNavigate();
 
@@ -36,9 +36,9 @@ const Details = () => {
       </button>
       {product ? (
         <>
-          <div className="w-[80%] h-[90%] shadow-lg shadow-black rounded-md m-auto flex justify-center items-center gap-[10%] p-[8%]">
+          <div className="w-[80%] h-[90%] shadow-lg shadow-black rounded-md m-auto flex justify-center items-center gap-[5%] p-[8%]">
             <img
-              className="object-cover bg-slate-500 h-[100%]"
+              className="object-contain w-[50%] h-[100%]"
               src={product.image}
               alt={product.title}
             />

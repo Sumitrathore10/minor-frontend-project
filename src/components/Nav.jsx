@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Nav = () => {
   return (
     <>
-      <nav className="w-[15%] h-full bg-red-500 flex items-center flex-col  pt-5 px-3 ">
+      <nav className="w-[20%] h-full bg-red-500 flex items-center flex-col shadow-md shadow-black pt-5 px-3 ">
         <Link
           to="/create"
           className="text-white font-sans font-semibold border-gray-200 border-2 px-3 py-2 "

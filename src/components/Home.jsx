@@ -18,18 +18,18 @@ const Home = () => {
           products.map((p, i) => (
             <Link
               to={`/details/${p.id}`} // Assuming each product has a unique id
-              className="w-[20%] h-[40%] flex justify-center items-center m-2 pt-4 flex-col gap-2 shadow-lg rounded bg-white shadow-zinc-500"
+              className="w-[31%] h-[40%] flex justify-center items-center m-2 pt-4 flex-col gap-2 shadow-lg rounded bg-white shadow-zinc-500"
               key={i}
             >
               <div
                 style={{
                   backgroundImage: `url(${p.image})`, // Use template literals correctly to pass the image URL
                 }}
-                className="w-[80%] h-[80%] bg-contain bg-no-repeat bg-center hover:scale-110"
+                className="w-[80%] h-[80%] bg-contain bg-no-repeat bg-center hover:scale-105 rounded-lg"
               ></div>
 
-              <h1 className="font-sans text-red-500 hover:text-blue-500 cursor-pointer font-semibold">
-                {p.name} {/* Dynamically display product name */}
+              <h1 className="font-sans text-red-500 hover:text-blue-500 cursor-pointer text-center p-[2%] font-semibold">
+                {p.title} {/* Dynamically display product name */}
               </h1>
             </Link>
           ))
