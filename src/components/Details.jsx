@@ -9,7 +9,7 @@ const Details = () => {
 
   const getSingleProduct = async () => {
     try {
-      const { data } = await axios.get(`https://fakestoreapi.com/products/${id}`);
+      const { data } = await axios.get(`/products/${id}`);
       setProduct(data);
     } catch (error) {
       console.log("Error fetching product:", error.message);
