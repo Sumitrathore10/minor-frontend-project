@@ -1,18 +1,21 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ProductContext } from "../utils/Context";
 
 const Nav = () => {
-
   const [products] = useContext(ProductContext);
 
-  let distinct_category = products && products.reduce((acc,cv)=> [...acc,cv.category],[])
-  distinct_category = [...new Set(distinct_category)]
- 
-  const color = () =>{
-    return `rgba(${(Math.random() * 255).toFixed()},${(Math.random() * 255).toFixed()},${(Math.random() * 255).toFixed()},0.4)`
-  }
+  let distinct_category =
+    products && products.reduce((acc, cv) => [...acc, cv.category], []);
+  distinct_category = [...new Set(distinct_category)];
 
+  const color = () => {
+    return `rgba(${(Math.random() * 255).toFixed()},${(
+      Math.random() * 255
+    ).toFixed()},${(Math.random() * 255).toFixed()},0.4)`;
+  };
+
+  const { search, pathname } = useLocation();
 
   return (
     <>
@@ -28,15 +31,32 @@ const Nav = () => {
           Category
         </h1>
         <div className="  w-[80%] ">
-         {distinct_category.map((c,i)=>(
-           <Link key={i} to={`/?category=${c}`} className=" mb-3 flex  items-center gap-2 text-white">
-            {" "}
-            <span style={{backgroundColor : color()}} className='w-[15px] h-[15px] rounded-full block shadow-black shadow-sm'></span>
-            {c}
-          </Link>
-         ))}
+          {distinct_category.map((c, i) => (
+            <Link
+              key={i}
+              to={`/?category=${c}`}
+              className=" mb-3 flex  items-center gap-2 text-white"
+            >
+              {" "}
+              <span
+                style={{ backgroundColor: color() }}
+                className="w-[15px] h-[15px] rounded-full block shadow-black shadow-sm"
+              ></span>
+              {c}
+            </Link>
+          ))}
         </div>
       </nav>
+      {pathname != "/" || search.length > 0 ? (
+        <Link
+          className="text-red-500 font-sans font-semibold absolute left-[23.5%] top-[2%]  border-gray-400 border-2 px-3 py-2 h-fit shadow-black shadow-sm rounded-md"
+          to="/"
+        >
+          Home
+        </Link>
+      ) : (
+        <div></div>
+      )}
     </>
   );
 };
