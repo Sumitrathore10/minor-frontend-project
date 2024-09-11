@@ -53,7 +53,7 @@ const Home = () => {
                 className="w-[80%] h-[80%] bg-contain bg-no-repeat bg-center hover:scale-105 rounded-lg"
               ></div>
 
-              <h1 className="font-sans text-red-500 hover:text-blue-500 cursor-pointer text-center p-[2%] font-semibold">
+              <h1 className="font-sans  text-red-500 hover:text-blue-500 cursor-pointer text-center p-[2%] font-semibold">
                 {p.title} {/* Dynamically display product name */}
               </h1>
             </Link>

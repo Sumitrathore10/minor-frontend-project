@@ -49,7 +49,7 @@ const Nav = () => {
       </nav>
       {pathname != "/" || search.length > 0 ? (
         <Link
-          className="text-red-500 font-sans font-semibold absolute left-[23.5%] top-[2%]  border-gray-400 border-2 px-3 py-2 h-fit shadow-black shadow-sm rounded-md"
+          className="text-red-500 font-sans font-semibold absolute left-[24%] top-[2%]  border-gray-400 border-2 px-3 py-2 h-fit shadow-black shadow-sm hover:scale-110 rounded-md"
           to="/"
         >
           Home
